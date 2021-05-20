@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<title>Booking.com</title>
+</head>
+
+<body>
+	<br><br><br>
+	<div class="container">
+		<h1>Booking.com</h1>
+		<div class="form-group">
+			<label for="customer-name">Name</label>
+			<input class="form-control" id="customerName" placeholder="Please Enter Your Name" required>
+		</div><br>
+		<div class="form-group">
+			<label for="location" class="form-label">Select Location</label>
+			<select class="form-control" id="location" required>
+				<option selected disabled>Please Select</option>
+				<option id="locationNameOne"></option>
+				<option id="locationNameTwo"></option>
+			</select>
+		</div><br>
+		<div class="form-group">
+			<label for="hotel" class="form-label">Select Hotel</label>
+			<select class="form-control" id="hotel" required>
+				<option selected disabled>Please Select</option>
+				<option id="hotelNameOne"></option>
+				<option id="hotelNameTwo"></option>
+			</select>
+		</div><br>
+		<div class="form-group">
+			<label for="stay" class="form-label">Select Nights</label>
+			<select class="form-control" id="stay" required>
+				<option selected disabled>Please Select</option>
+				<option>1</option>
+				<option>2</option>
+			</select>
+		</div><br>
+		<button type="submit" class="btn btn-primary" id="book">Book.</button>
+		<br><br>
+	</div>
+	<div class="container" id="details">
+		<h1></h1>
+		<h2><span id="showCustomerName"></span></h2>
+		<h4><span id="showBookingDetails"></span></h4>
+		<h4><span id="showBookingTotal"></span></h4>
+	</div>
+	<div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close"></button>
+				</div>
+				<div class="modal-body">
+					<h6 id="showModalDetails"></h6>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="text/javascript" src="hotel-data.js">
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+html {
+  height: 8000px;
+}
+h4 {
+  font-family: congenial-light,sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  color: white;
+  font-size: 20px;
+}
+.block {
+  width: 300px;
+  height: 200px;
+  box-shadow: 20px 20px 35px -20px rgba(0,0,0,0.9);
+  padding: 10px;
+}
+
+.static {
+  background-color: #260F13;
+}
+
+.absolute {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #592533;
+}
+
+.relative {
+  background-color: #BF935E;
+  position: relative;
+  top: 20px;
+  left: 50px;
+}
+
+.fixed {
+  background-color: #A67C7C;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}

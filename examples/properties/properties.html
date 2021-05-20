@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style media="screen">
+    body {
+      background-image: url('img/bg-main.jpeg');
+      background-size: cover;
+    }
+
+    .container {
+      padding: 5%;
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(15.0px);
+      -webkit-backdrop-filter: blur(15.0px);
+      border-radius: 50px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    button {
+      width: 100%;
+      height: 50px;
+      border-radius: 50px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Booking.com</h1>
+    <table align="center" class="table">
+      <tr>
+        <th>Property Name</th>
+        <td id="pName">Property Name</td>
+      </tr>
+      <tr>
+        <th>Property Ratings</th>
+        <td id="pRatings">Property Ratings</td>
+      </tr>
+      <tr>
+        <th>Property Locaion</th>
+        <td id="pLocation">Property Locaion</td>
+      </tr>
+      <tr>
+        <th>Parking Available</th>
+        <td id="parking">Parking</td>
+      </tr>
+      <tr>
+        <th>Cancellation Charges</th>
+        <td id="cancellation">Cancellation</td>
+      </tr>
+      <tr>
+        <th>Outdoor Facilities</th>
+        <td>
+          <ul id="outdoors">
+            <li>Beach Front</li>
+            <li>Sun Deck</li>
+            <li>BBQ</li>
+            <li>Balcony</li>
+            <li>Terrace</li>
+            <li>Garden</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Cleaning Services</th>
+        <td>
+          <ul id="cleaningServices">
+            <li>Daily Housekeeping</li>
+            <li>Ironing</li>
+            <li>Dry Cleaning</li>
+            <li>Laundry</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th><img id="img1" src="..." alt="" width="480px"></th>
+        <th><img id="img2" src="..." alt="" width="480px"></th>
+      </tr>
+    </table>
+    <button type="button" name="button" class="button">Update</button>
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+
+  <script type="text/javascript">
+    var propertyDetails = {
+      propertyName: 'Marina Bay Sands',
+      propertyLocation: 'Singapore',
+      propertyRatings: 9.5,
+      parkingAvailable: true,
+      cancellationFee: false,
+      facilities: {
+        outdoors: [' Beach Front', ' Sun Deck', ' BBQ', ' Balcony', ' Terrace', ' Garden'],
+        cleaningServices: [' Daily Housekeeping', ' Ironing', ' Dry Cleaning', ' Laundry']
+      },
+      propertyImages: ['img/facade.jpg', 'img/bedroom.jpg', 'img/balcony.jpg'],
+
+      updateDOM: function() {
+        var getPropertyName = document.getElementById('pName'),
+          getPropertyLocation = document.getElementById('pLocation'),
+          getPropertyRatings = document.getElementById('pRatings'),
+          getpParking = document.getElementById('parking'),
+          getCancellation = document.getElementById('cancellation'),
+          getOutdoorFacilities = document.getElementById('outdoors'),
+          getCleaningFacilities = document.getElementById('cleaningServices'),
+          getImageOne = document.getElementById('img1'),
+          getImageTwo = document.getElementById('img2');
+
+
+        getPropertyName.textContent = propertyDetails.propertyName;
+        getPropertyLocation.textContent = propertyDetails.propertyLocation;
+        getPropertyRatings.textContent = propertyDetails.propertyRatings;
+        getCancellation.textContent = propertyDetails.cancellationFee;
+        getOutdoorFacilities.textContent = propertyDetails.facilities.outdoors;
+        getCleaningFacilities.textContent = propertyDetails.facilities.cleaningServices;
+        getImageOne.src = propertyDetails.propertyImages[0];
+        getImageTwo.src = propertyDetails.propertyImages[1];
+        if (parkingAvailable = true) {
+          getpParking.textContent = "Yes";
+        } else {
+          getpParking.textContent = "No";
+        }
+        if (cancellationFee = false) {
+          getCancellation.textContent = "Yes";
+        } else {
+          getCancellation.textContent = "No";
+        }
+      }
+    };
+
+    var getUpdate = document.querySelector('button');
+    getUpdate.onclick = function() {
+      propertyDetails.updateDOM();
+    };
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+		h2 {
+			text-align: center;
+		}
+
+		.order-panel,
+		.confirmation-panel {
+			text-align: center;
+			float: left;
+			width: 49%;
+			min-height: 75vh;
+			margin: 5px;
+			background-color: #efefef;
+		}
+
+		span {
+			padding: 50px;
+		}
+	</style>
+	<title>Document</title>
+</head>
+
+<body>
+
+	<div class="order-panel">
+		<h2>Order Form</h2>
+		<div class="form-group">
+			<label for="customer-name">Name</label>
+			<input class="form-control" id="customerName" placeholder="Your Name Here...">
+		</div>
+		<div class="form-group">
+			<label for="burger">Burger</label>
+			<select class="form-control" id="burger">
+				<option>Hamburger $3.5</option>
+				<option>Vegeterian Burger $5.5</option>
+				<option>Fish Burger $4</option>
+				<option>Steak Burger $6.5</option>
+				<option>Tofu Burger $5.5</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="quantity">Quantity</label>
+			<select class="form-control" id="burgerQuantity">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+				<option>6</option>
+				<option>7</option>
+			</select>
+		</div>
+		<button class="btn btn-primary" id="addBurger">Add</button><br><br>
+		<div class="form-group">
+			<label for="drinks">Drinks</label>
+			<select class="form-control" id="drinks">
+				<option>Coke $2</option>
+				<option>Coke No Sugar $2</option>
+				<option>Pepsi $2</option>
+				<option>Pepsi Max $2</option>
+				<option>L&P $2</option>
+				<option>Fuze Peach $2</option>
+				<option>Sprite No Sugar $2</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="quantity">Quantity</label>
+			<select class="form-control" id="drinksQuantity">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+				<option>6</option>
+				<option>7</option>
+			</select>
+		</div>
+		<button class="btn btn-primary" id="addDrinks">Add</button><br><br>
+		<button class="btn btn-primary" id="total">Order</button>
+	</div>
+	<div class="confirmation-panel">
+		<h2>Order Details</h2>
+		<h3 id="customerNameDetails"></h3>
+		<table class="table">
+			<tr>
+				<td><strong>Item Name</strong></td>
+				<td><strong>Quantity</strong></td>
+				<td><strong>Price</strong></td>
+			</tr>
+			<tr>
+				<td><span id="burgerDetails"></span></td>
+				<td><span id="burgerQuantityDetails"></span></td>
+				<td><span id="burgerPriceTotal"></span><br></td>
+			</tr>
+			<tr>
+				<td><span id="drinksDetails"></span></td>
+				<td><span id="drinksQuantityDetails"></span></td>
+				<td><span id="drinksPriceTotal"></span></td>
+			</tr>
+			<tr>
+				<td colspan="3"><span id="grandTotal"></span></td>
+			</tr>
+		</table>
+	</div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script>
+		// custom js here
+		$(window).ready(function() {
+
+
+			// getting customer name
+			var getCustomerName = document.getElementById('customerName');
+			var getCustomerDetails = document.getElementById('customerNameDetails');
+			getCustomerDetails.textContent = getCustomerName.value;
+
+			var getGrandTotal = document.getElementById('grandTotal');
+
+			var lessThanFifteen = ['1 x Fries', '1 x Hash Brown', '1 x Free sauce'];
+			var lessThanTwenty = ['1 x Burger', '1 x Drink', '1 x Icecream'];
+			var moreThanTwenty = ['1 x Burger', '2 x Drinks', '2 x Icecreams', '1 x Carwash Ticket'];
+
+			$('#addBurger').click(function() {
+				// getting burger price
+				// getting burger name
+				var getBurger = document.getElementById('burger').value;
+				var getBurgerDetails = document.getElementById('burgerDetails');
+				var showBurgerName = getBurger.split("$");
+				// getting burger quantity
+				var getBurgerQuantity = document.getElementById('burgerQuantity');
+				var getBurgerQuantityDetails = document.getElementById('burgerQuantityDetails');
+				// getting burger price
+				var getBurgerPrice = document.getElementById('burger').value;
+				var getBurgerPriceDetails = document.getElementById('burgerPriceTotal');
+				var showBurgerPrice = getBurgerPrice.split("$");
+
+				getBurgerDetails.textContent = showBurgerName[0];
+				getBurgerQuantityDetails.textContent = "x" + getBurgerQuantity.value;
+				getBurgerPriceDetails.textContent = "$" + showBurgerPrice[1] * getBurgerQuantity.value;
+			});
+
+			$('#addDrinks').click(function() {
+
+				// getting drinks price
+				// getting drinks name
+				var getDrinks = document.getElementById('drinks').value;
+				var getDrinksDetails = document.getElementById('drinksDetails');
+				var showDrinksName = getDrinks.split("$");
+				// getting drinks quantity
+				var getDrinksQuantity = document.getElementById('drinksQuantity');
+				var getDrinksQuantityDetails = document.getElementById('drinksQuantityDetails');
+				// getting drinks price
+				var getDrinksPrice = document.getElementById('drinks').value;
+				var getDrinksPriceDetails = document.getElementById('drinksPriceTotal');
+				var showDrinksPrice = getDrinksPrice.split("$");
+
+				getDrinksDetails.textContent = showDrinksName[0];
+				getDrinksQuantityDetails.textContent = "x" + getDrinksQuantity.value;
+				getDrinksPriceDetails.textContent = "$" + showDrinksPrice[1] * getDrinksQuantity.value;
+			});
+
+			$('#total').click(function() {
+				var getBurger = document.getElementById('burger').value;
+				var getBurgerDetails = document.getElementById('burgerDetails');
+				var showBurgerName = getBurger.split("$");
+				// getting burger quantity
+				var getBurgerQuantity = document.getElementById('burgerQuantity');
+				var getBurgerQuantityDetails = document.getElementById('burgerQuantityDetails');
+				// getting burger price
+				var getBurgerPrice = document.getElementById('burger').value;
+				var getBurgerPriceDetails = document.getElementById('burgerPriceTotal');
+				var showBurgerPrice = getBurgerPrice.split("$");
+
+				var getDrinks = document.getElementById('drinks').value;
+				var getDrinksDetails = document.getElementById('drinksDetails');
+				var showDrinksName = getDrinks.split("$");
+				// getting drinks quantity
+				var getDrinksQuantity = document.getElementById('drinksQuantity');
+				var getDrinksQuantityDetails = document.getElementById('drinksQuantityDetails');
+				// getting drinks price
+				var getDrinksPrice = document.getElementById('drinks').value;
+				var getDrinksPriceDetails = document.getElementById('drinksPriceTotal');
+				var showDrinksPrice = getDrinksPrice.split("$");
+				// getting grand Total
+				getGrandTotal.textContent = "Total Price - $" + parseInt((showBurgerPrice[1] * getBurgerQuantity.value) + (showDrinksPrice[1] * getDrinksQuantity.value));
+
+				var totalTest = parseInt((showBurgerPrice[1] * getBurgerQuantity.value) + (showDrinksPrice[1] * getDrinksQuantity.value));
+
+				if (totalTest <= 15) {
+					console.log(lessThanFifteen);
+				} else if (totalTest <=20 && totalTest > 15) {
+					console.log(lessThanTwenty);
+				} else {
+					console.log(moreThanTwenty);
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>

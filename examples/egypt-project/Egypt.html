@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.typekit.net/jwi1eot.css">
+  <title>Egypt</title>
+
+  <style media="screen">
+
+    body {
+      font-family: hero-new-hairline, sans-serif;
+      font-weight: 100;
+      font-style: normal;
+      font-size: 26px;
+      color: white;
+      background-image: url(img/bg-main.jpg);
+      background-attachment: fixed;
+      /* Parallax Scroll */
+    }
+
+    h1 {
+      font-family: sabbath-black, serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    h2 {
+      font-family: ode, sans-serif;
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    /* Glassmorphism code */
+    .img,
+    .info,
+    .info2 {
+      background: rgba(159, 182, 251, 0.35);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(10.5px);
+      -webkit-backdrop-filter: blur(10.5px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 50px;
+      margin: 25px;
+      width: 35%;
+    }
+
+    .img img {
+      width: 640px;
+      height: 488px;
+    }
+
+    .show {
+      background-color: #4CAF50;
+      /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 10px;
+      margin: 25px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+    <h1>History</h1>
+  </header>
+
+  <div class="container">
+
+    <div class="img">
+
+      <h2>King Tut may have been killed by a hippopotamus.</h2>
+      <img src="img/king-tut-killed.png" alt="King Tut Killed">
+    </div>
+
+    <div class="info">
+      <p>
+        Surprisingly little is known about the life of the boy pharaoh Tutankhamen, but some historians believe they know how he died. Scans of the young king’s body show that he was embalmed without his heart or his chest wall. This drastic
+        departure from traditional Egyptian burial practice suggests that he may have suffered a horrific injury prior to his death. According to a handful of Egyptologists, one of the most likely causes for this wound would have been a bite from a
+        hippopotamus. Evidence indicates that the Egyptians hunted the beasts for sport, and statues found in King Tut’s tomb even depict him in the act of throwing a harpoon. If the boy pharaoh was indeed fond of stalking dangerous game, then his
+        death might have been the result of a hunt gone wrong.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="buttons">
+    <button type="button" name="Show" class="show">SHOW WASSUP</button>
+  </div>
+
+  <div class="container2">
+    <div class="info2">
+      <h1>
+        This is Header 1.
+      </h1>
+      <h2>
+        This is Header 2.
+      </h2>
+      <h3>
+        This is Header 3.
+      </h3>
+      <h4>
+        This is Header 4.
+      </h4>
+      <h5>
+        This is Header 5.
+      </h5>
+      <h6>
+        This is Header 6.
+      </h6>
+      <p>
+        This is a paragraph. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </div>
+  </div>
+
+  <!-- Imported CDN library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <!-- Internal Javascript -->
+  <script>
+    // Javascript alert
+    // alert('Good Morning!!')
+    // $ means jQuery is used
+
+    // jQuery methods
+
+    setTimeout(function() {
+      alert('Uncle Zuck is watching you g!!');
+    }, 5000);
+
+    $('.show').click(function() {
+      alert('Vaccine arrives early in Aotearoa!');
+    });
+  </script>
+</body>
+
+</html>

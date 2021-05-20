@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+		* {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		form {
+			width: 80%;
+			margin: 0 auto;
+		}
+
+		h2 {
+			text-align: center;
+		}
+
+		.order-panel,
+		.confirmation-panel {
+			text-align: center;
+			float: left;
+			width: 49%;
+			min-height: 75vh;
+			margin: 5px;
+			background-color: #efefef;
+		}
+	</style>
+	<title>Document</title>
+</head>
+
+<body>
+
+	<div class="order-panel">
+		<h2>Order Form</h2>
+
+		<!-- Customer Name  -->
+		<div class="form-group">
+			<label for="customer-name">Name</label>
+			<input class="form-control" id="customerName" placeholder="Enter Your Name" required>
+		</div>
+
+		<!-- Burger Selection  -->
+		<div class="form-group">
+			<label for="burger">Burger</label>
+			<select class="form-control" id="burger">
+				<option disabled selected>Please Select</option>
+				<option>Hamburger $12.95</option>
+				<option>Vegeterian Burger $5.20</option>
+				<option>Fish Burger $18.95</option>
+				<option>Steak Burger $18.95</option>
+				<option>Tofu Burger $10.95</option>
+			</select>
+		</div>
+
+		<!-- Drinks Selection  -->
+		<div class="form-group">
+			<label for="drinks">Drinks</label>
+			<select class="form-control" id="drinks">
+				<option disabled selected>Please Select</option>
+				<option>Coke $2.95</option>
+				<option>Sprite $2.20</option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<input class="form-control" id="promoCode" placeholder="Enter Promo Code">
+		</div>
+
+		<button class="btn btn-primary" id="order">Order</button>
+
+	</div>
+
+	<!-- Order Details Screen -->
+	<div class="confirmation-panel">
+		<h1>Order Details</h1>
+		<h2>Your Order</h2>
+		<h3 id="customerNameDetails"></h3>
+		<ul>
+			<h4><span id="burgerDetails"></span></h4>
+			<h4><span id="drinksDetails"></span></h4>
+		</ul>
+		<h2>Promotional Add-ons</h2>
+		<ul>
+			<h4><span class="no-promo"></span></h4>
+			<h4><span class="change-it"></span></h4>
+			<h4><span class="change-it"></span></h4>
+			<h4><span class="change-it"></span></h4>
+			<h4><span class="change-it"></span></h4>
+			<h4><span class="change-it"></span></h4>
+		</ul>
+		<h2>Total <span id="amountTotal"></span></h2>
+	</div>
+	<!-- Order Details Screen ENDS -->
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script>
+		// custom js here
+		$(window).ready(function() {
+
+			// 1. Add a click event to the order button
+			// remember to console.log to test the click
+			$('#order').click(function() {
+				// Calling the function
+				updateDetails();
+			});
+			// click Event ENDS
+
+			function updateDetails() {
+				// Get CUSTOMER NAME info and output to details page
+				// Vanilla .js for the rest of my code
+				// Getting customer name input
+				var getCustName = document.getElementById('customerName');
+				console.dir(getCustName.value);
+				// Applying customer input for name to the order details page/div
+				var getCustDetails = document.getElementById('customerNameDetails');
+				getCustDetails.textContent = getCustName.value;
+
+
+				// Do the same for the SELECT BURGER input
+				// Get the value of the burger select input
+				var getBurger = document.getElementById('burger').value;
+				// Gets the html list element on the right hand side details page
+				var getBurgerList = document.getElementById('burgerDetails');
+				// Changes the text of the list element -- updates the details page
+				getBurgerList.textContent = getBurger;
+
+				// Gets the html list element on the right hand side details page
+				var getDrinksList = document.getElementById('drinksDetails');
+				// Get the DRINKS selector value
+				var getDrinks = document.getElementById('drinks').value;
+				// Changes the text of the list element -- updates the details page
+				getDrinksList.textContent = getDrinks;
+
+				// *** WORKING WITH NUMBERS AND THE FINAL PRICE ***
+				// This splits the string so we can get the price as a new string
+				// Convert the string into an array with the split() method, split at the $ sign mark
+				var getBurgerArr = getBurger.split('$');
+				// Now we are checking the second item in the array
+				console.log(getBurgerArr[1]);
+				// Convert the string into an array with the split() method, split at the $ sign mark
+				var getDrinksArr = getDrinks.split('$');
+				console.log(getDrinksArr[1]);
+				// Get the total/amount element from the details page
+				var getTotal = document.getElementById('amountTotal');
+				// Add the 2 prices together to get the total
+				var finalTotal = parseFloat(getBurgerArr[1]) + parseFloat(getDrinksArr[1]);
+				// Log the total to the console
+				console.log(finalTotal.toFixed(2));
+				// Add the burger price to the element
+				getTotal.textContent = finalTotal.toFixed(2);
+
+
+				var lessThanFifteen = ['LS0015', '1 x Fries', '1 x Hash Brown', '1 x Free sauce'];
+				var lessThanTwenty = ['LS0020', '1 x Burger', '1 x Drink', '1 x Icecream'];
+				var moreThanTwenty = ['MR0020', '1 x Burger', '2 x Drinks', '2 x Icecreams', '1 x Carwash Ticket'];
+				var noPromo = 'You dont have any promotions applied ';
+				var getPromo = document.getElementById('promoCode');
+
+				if (finalTotal < 15 && getPromo.value === lessThanFifteen[0]) {
+					console.log('Promo A');
+					lessThanFifteen.shift();
+					$(".change-it").each(function(index, element) {
+						$(element).text(lessThanFifteen[index]);
+					});
+				} else if (finalTotal > 15 && finalTotal < 20 && getPromo.value === lessThanTwenty[0]) {
+					console.log('Promo B');
+					lessThanTwenty.shift();
+					$(".change-it").each(function(index, element) {
+						$(element).text(lessThanTwenty[index]);
+					});
+				} else if (finalTotal > 20 && getPromo.value === moreThanTwenty[0]) {
+					console.log('Promo C');
+					moreThanTwenty.shift();
+					$(".change-it").each(function(index, element) {
+						$(element).text(moreThanTwenty[index]);
+					});
+				} else {
+					$(".no-promo").each(function(index, element) {
+						$(element).text(noPromo + getCustName.value + '.');
+					});
+				}
+
+
+
+
+			};
+			// ENDS
+
+		});
+	</script>
+</body>
+
+</html>

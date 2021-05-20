@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Plugin for text animation</title>
+  <!-- plugins for animations and styles -->
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <center>
+    <h1 class="tlt">Why do bicycles fall over?</h1>
+    <h1 class="tlt-2">Because they are two-tired.</h1>
+  </center>
+  <!-- jQuery file -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="js/jquery.fittext.js"></script>
+  <script src="js/jquery.lettering.js"></script>
+  <!-- Plugin fle -->
+  <script src="js/jquery.textillate.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      // For first line
+      $('.tlt').textillate({
+        in: {
+          effect: 'bounceInLeft',
+          delayScale: 1.5,
+          delay: 100,
+          sync: false,
+          shuffle: false,
+          reverse: false,
+          callback: function () {}
+        }
+      });
+      // For second line
+      $('.tlt-2').textillate({
+        in: {
+          effect: 'bounceInRight',
+          delayScale: 1.5,
+          delay: 100,
+          sync: false,
+          shuffle: false,
+          reverse: false,
+          callback: function () {}
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

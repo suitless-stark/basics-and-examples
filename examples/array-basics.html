@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Arrays</title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+		/* CSS Here */
+		body {
+			margin: 5%;
+		}
+
+		.a-sentence {
+			margin: 75px 0px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Firstname</th>
+				<th>Lastname</th>
+				<th>Movie</th>
+				<th>Age</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- Data Goes Here -->
+			<tr id="Actor">
+				<td id="firstName">Click Me</td>
+				<td id="lastName">Doe</td>
+				<td id="movie">Gump Forrest</td>
+				<td id="age">40</td>
+			</tr>
+			<tr id="Actress">
+				<td id="firstName">John</td>
+				<td id="lastName">Doe</td>
+				<td id="movie">Gump Forrest</td>
+				<td id="age">40</td>
+			</tr>
+			<tr>
+				<td id="firstNameDirector">John</td>
+				<td id="lastNameDirector">Doe</td>
+				<td id="movieDirector">Gump Forrest</td>
+				<td id="ageDirector">40</td>
+			</tr>
+		</tbody>
+	</table>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+	<script>
+
+
+		var mohnishLeuva = {
+			firstName: 'Mohnish',
+			lastName: 'Leuva',
+			age: 26,
+			eatsMeat: false,
+			eatsEggs: true,
+			favouriteMovie: ['The Shawshank Redemption', 'John Wick']
+		};
+
+		// data for row 1
+		var person1 = {
+			firstName: 'Robert',
+			lastName: 'Downey Jr.',
+			movies: ['Zodiac', 'Iron Man', 'The Judge'],
+			age: 56
+		};
+
+		// data for row 2
+		var person2 = {
+			firstName: 'Keanu',
+			lastName: 'Reeves',
+			movies: ['Matrix', 'John Wick', 'Speed'],
+			age: 56
+		};
+
+		// data for row 3
+		var person3 = {
+			firstName: 'Dwayne',
+			lastName: 'Johnson',
+			movies: ['Fast Five', 'Moana', 'Walking Tall'],
+			age: 48
+		};
+
+
+		// click function
+		$('#firstName').click(function() {
+			// call the function
+			updateTable();
+		});
+
+		// create the fucntion
+		function updateTable() {
+			var getFirstNameActor = document.querySelector('#Actor > #firstName');
+			getFirstNameActor.textContent = person1.firstName;
+
+			var getLastnameActor = document.querySelector('#Actor > #lastName');
+			getLastnameActor.textContent = person1.lastName;
+
+			var getMovieActor = document.querySelector('#Actor > #movie');
+			getMovieActor.textContent = person1.movies[0];
+
+			var getAgeActor = document.querySelector('#Actor > #age');
+			getAgeActor.textContent = person1.age;
+
+			var getFirstNameActress = document.querySelector('#Actress > #firstName');
+			getFirstNameActress.textContent = person2.firstName;
+
+			var getLastnameActress = document.querySelector('#Actress > #lastName');
+			getLastnameActress.textContent = person2.lastName;
+
+			var getMovieActress = document.querySelector('#Actress > #movie');
+			getMovieActress.textContent = person2.movies[1];
+
+			var getAgeActress = document.querySelector('#Actress > #age');
+			getAgeActress.textContent = person2.age;
+		};
+
+
+
+		// console.log(mohnishLeuva.firstName);
+
+		// var demoArray = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+		//
+		// console.log(demoArray[6]);
+		// demoArray[6] = 'new thing';
+		// console.log(demoArray);
+		//
+		// var firstDayOfTheWeek = demoArray[0];
+		// console.log(firstDayOfTheWeek);
+		//
+		// demoArray.unshift('days of the week');
+		// console.log(demoArray);
+		//
+		// demoArray.pop();
+		// console.log(demoArray);
+		// console.log(demoArray.length);
+	</script>
+</body>
+
+</html>

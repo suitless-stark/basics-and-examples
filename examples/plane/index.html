@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    body {
+      background-image: url('bg.jpg');
+      background-attachment: fixed;
+      background-size: cover;
+      overflow: hidden;
+    }
+
+    .plane {
+      width: 120px;
+      transform: rotate(135deg);
+      position: absolute;
+      bottom: 0%;
+      left: 0%;
+      transition: all 17s ease;
+    }
+
+    .plane-shadow {
+      width: 120px;
+      transform: rotate(135deg);
+      position: absolute;
+      bottom: 0%;
+      left: 0%;
+      transition: all 17s ease;
+      z-index: -1;
+    }
+
+    .take-off {
+      left: 150%;
+      bottom: 150%;
+      width: 350px;
+    }
+    .shadow-takeoff {
+      left: 150%;
+      bottom: 150%;
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="airplane-png.png" alt="Airplane" class="plane">
+  <img src="airplane-shadow.png" alt="Airplane" class="plane-shadow">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var audio = new Audio('takeoff.mp3');
+      $('.plane').click(function() {
+        $('.plane').addClass('take-off');
+        audio.play();
+        $('.plane-shadow').addClass('shadow-takeoff');
+      });
+    });
+  </script>
+</body>
+
+</html>

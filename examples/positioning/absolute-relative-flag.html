@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style-new.css">
+  <!-- Custom CSS always has to be last in the workflow -->
+  <title>Aotearoa Flag</title>
+</head>
+
+<body>
+  <h1>Hello World</h1>
+
+  <div class="flag-stick"></div>
+  <div class="flag" id="flag">
+    <div class="union-jack">
+      <div class="red-block-one"></div>
+      <div class="red-block-two"></div>
+      <div class="red-block-three"></div>
+      <div class="red-block-four"></div>
+    </div>
+    <i class="fa fa-star star-one" aria-hidden="true"></i>
+    <i class="fa fa-star star-two" aria-hidden="true"></i>
+    <i class="fa fa-star star-three" aria-hidden="true"></i>
+    <i class="fa fa-star star-four" aria-hidden="true"></i>
+
+  </div>
+  <!-- Flag ends -->
+
+  <button id="trigger">Play Button</button>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script type="text/javascript">
+
+    // Wait until the document is ready
+    $(document).ready(function(){
+
+      // Get the trigger or button then add a click event
+      $('#trigger').click(function(){
+        // Hide the stars on click
+        // $('.fa').hide(1000);
+
+        // Play the audio
+        var audio = new Audio('music/anthem.mp3');
+        audio.play();
+      });
+    });
+  </script>
+</body>
+</html>

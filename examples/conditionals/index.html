@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    body {
+      background-color: #d66161;
+      color: white;
+    }
+
+    h1 {
+      font-size: 36px;
+    }
+
+    button {
+      width: 25%;
+      padding: 2%;
+      border-radius: 50px;
+      background: #d66161;
+      box-shadow: 20px 20px 60px #b65252,
+        -20px -20px 60px #f67070;
+      border: none;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <center>
+    <h1 id="one"></h1><br><br>
+    <h1 id="two"></h1>
+    <button type="button" name="button" class="main">START QUIZ</button>
+  </center>
+  <script type="text/javascript">
+
+    var getButton = document.querySelector('button');
+
+    getButton.onclick = function() {
+      startQuiz();
+    };
+
+    function startQuiz() {
+      var i = 0;
+      var getScore = document.querySelector('h1');
+
+      var date = parseInt(prompt("Please guess today's date!!!", "DD"));
+      if (date === 4) {
+        var month = prompt("Perfect! Now tell me what month is it??", "MMMM");
+        i++;
+      } else {
+        var month = prompt("Oops! Let's see if you know the month.", "MMMM");
+      }
+
+      if (month === 'May') {
+        var year = parseInt(prompt("Solid! Let's guess the year now!", "YYYY"));
+        i++;
+      } else {
+        var year = parseInt(prompt("C'mon man! WHAT YEAR ARE WE IN??", "YYYY"));
+      }
+
+      if (year === 2021) {
+        var level = parseInt(prompt("AWESOME!! What level are you studying atm?"));
+        i++;
+      } else {
+        var level = parseInt(prompt("ARE YOU FOR REAL!!?? What level do you study??"));
+      }
+
+      if (level === 6) {
+        var last = prompt("GOOD JOB! One last thing. What is the name of your tutor");
+        i++;
+      } else {
+        var last = prompt("You should know that man! Who's your tutor?");
+      }
+
+      if (last === 'Jared') {
+        var finish = alert("BOOM! YOU ARE DONE!!");
+        i++;
+      } else {
+        var finish = alert("GET OUTTA HERE!!");
+      }
+
+      getScore.innerHTML = i;
+    }
+    var getOne = document.getElementById('one');
+    var getTwo = document.getElementById('two');
+
+    function anotherQuiz() {
+
+
+      var date = parseInt(prompt('What is todays date?'));
+      if (date === 4) {
+        var age = parseInt(prompt('Legend! - Whats my age?', 'Im almost in my late 20s'));
+        getOne.innerHTML = "You said the date is " + date + ". Good Guess!";
+      } else if (date > 4) {
+        var age = parseInt(prompt('Are you living in the future?? - Whats my age?', 'Im almost in my late 20s'));
+        getOne.innerHTML = "You said the date is " + date + ". Back to the future?";
+      } else {
+        var age = parseInt(prompt('Negative! - Now tell me my age', 'Im almost in my late 20s'));
+        getOne.innerHTML = "You said the date is " + date + ". LOL";
+      }
+
+      if (age === 26) {
+        alert('Good Job!');
+        getTwo.innerHTML = "You guessed my age is " + age + ". Good Job!!";
+      } else if (age === 27) {
+        alert('You just made me one year older!!');
+        getTwo.innerHTML = "You guessed my age is " + age + ". One Year Older!!";
+      } else if (age === 25) {
+        alert('Thanks for making me one year younger!!');
+        getTwo.innerHTML = "You guessed my age is " + age + ". One Year Younger!!";
+      } else if (age <= 24) {
+        alert('Way Younger!!');
+        getTwo.innerHTML = "You guessed my age is " + age + ". Way Younger!!";
+      } else if (age >= 28) {
+        alert('Way Older!');
+        getTwo.innerHTML = "You guessed my age is " + age + ". Way Older!!";
+      }
+    }
+  </script>
+</body>
+
+</html>
